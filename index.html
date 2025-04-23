@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Products</title>
+    <title>כל המוצרים</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="assets/animate.min.css">
@@ -113,14 +113,14 @@
 
     <script>
 
-        const baseUrl = "https://10youseftarek.github.io/Abu-Yosef-Masar-Code-ecommerce-frontend-with-json/";
+        const baseUrl = "https://amereco-furniture.com/";
         // const baseUrl = "/";
         fetch(baseUrl + "data.html").then(res => res.text()).then(html => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, "text/html");
             const jsonText = doc.querySelector("#products-data").textContent;
             if (!jsonText) {
-                console.error("البيانات غير موجودة");
+                console.error("נתונים אינם קיימים");
                 return;
             }
             const data = JSON.parse(jsonText);
