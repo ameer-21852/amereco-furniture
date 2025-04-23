@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Orders</title>
+    <title>Amereco Furniture | מוּצָר</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css" />
@@ -196,7 +196,7 @@
         const productId = parseInt(params.get("id"));
 
         let selectedSize = ""; // ✅ متغير المقاس المختار
-        const baseUrl = "https://10youseftarek.github.io/Abu-Yosef-Masar-Code-ecommerce-frontend-with-json/";
+        const baseUrl = "https://amereco-furniture.com/";
         // const baseUrl = "/";
 
         fetch(baseUrl + "data.html").then(res => res.text()).then(html => {
@@ -206,7 +206,7 @@
             const data = JSON.parse(jsonText);
 
             const product = data.find(p => p.id === productId);
-            if (!product) return alert("المنتج غير موجود");
+            if (!product) return alert("המוצר אינו קיים");
 
             // Fill in the page:
             document.querySelector(".name").textContent = product.name;
