@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Products</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/animate.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <section class="flex">
+            <a href="index.html" class="logo">רהיטים אונליין - Amereco</a>
+            <form action="index.html" method="GET">
+                <input type="text" name="q" id="searchInput" placeholder="Search Bar" class="box222">
+
+                <button type="submit" class="btn222"><i class="fas fa-search"></i></button>
+            </form>
+
+        </section>
+
+    </header>
+    <a href="https://wa.me/972503581852" class="whatsapp-button" target="_blank" rel="noopener">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Contact" />
+    </a>
+
+    <section class="products">
+
+        <div id="product-list" class="box-container">
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+
+            <!-- عن المتجر -->
+            <div>
+                <h3>רהיטים אונליין - Amereco</h3>
+                <p>מזנונים בהתאמה אישית – עיצוב שמותאם בדיוק לכם! המזנון הוא לב הסלון, והוא צריך להיות יפה, פונקציונלי
+                    ומותאם בדיוק לצרכים שלכם. אצלנו ברהיטים אונליין - Amereco תוכלו לבחור את החומר, הצבעים והמידות כדי
+                    ליצור מזנון שמשתלב בצורה מושלמת עם הסגנון שלכם!
+                </p>
+                <p>✅ עיצוב ייחודי בהתאמה אישית<br>✅ איכות גבוהה ללא פשרות<br>✅ פונקציונליות שמתאימה בדיוק לבית שלכם</p>
+
+            </div>
+
+            <!-- روابط سريعة -->
+            <div>
+                <h3>אתרי רשתות חברתיות</h3>
+                <ul>
+
+                    <li><a target="_blank" href="https://www.facebook.com/AmirKitchens"><i
+                                class="fab fa-facebook-f"></i> פייסבוק </a></li>
+                    <li><a target="_blank" href="https://wa.me/972503581852"><i class="fab fa-whatsapp"></i> וזה נספר
+                        </a></li>
+
+                </ul>
+            </div>
+
+            <!-- الدعم -->
+            <div>
+                <h3>קישורים</h3>
+                <ul>
+                    <li><a href="index.html">בַּיִת</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+        <p class="copyright">&copy; <span id="year"></span> כל הזכויות שמורות Amereco</p>
+    </footer>
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        let navbar = document.querySelector('.header .flex .navbar');
+
+        document.querySelector('#menu-btn').onclick = () => {
+            navbar.classList.toggle('active');
+        }
+
+        window.onscroll = () => {
+            navbar.classList.remove('active');
+        }
+
+        document.querySelectorAll('input[type="number"]').forEach(inputNumber => {
+            inputNumber.oninput = () => {
+                if (inputNumber.value.length > inputNumber.maxLength) inputNumber.value = inputNumber.value.slice(0, inputNumber.maxLength);
+            };
+        });
+    </script>
+
+    <script>
+
+        const baseUrl = "https://10youseftarek.github.io/Abu-Yosef-Masar-Code-ecommerce-frontend-with-json/";
+        // const baseUrl = "/";
+        fetch(baseUrl + "data.html").then(res => res.text()).then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const jsonText = doc.querySelector("#products-data").textContent;
+            if (!jsonText) {
+                console.error("البيانات غير موجودة");
+                return;
+            }
+            const data = JSON.parse(jsonText);
+            const container = document.getElementById("product-list");
+            const searchInput = document.getElementById("searchInput");
+            function renderProducts(products) {
+                container.innerHTML = "";
+                if (products.length === 0) {
+                    container.innerHTML = `<p style="font-size: 1.6rem; color: black;">אין תוצאות תואמות</p>`;
+                    return;
+                }
+                products.forEach(product => {
+                    const div = document.createElement("div");
+                    div.className = "box wow animate__animated animate__bounceInUp";
+                    div.innerHTML = `
+                <a href="${baseUrl}product.html?id=${product.id}">
+                    <img src="${product.images[0]}" class="image" alt="${product.name}">
+                    <div class="name-sec">
+                        <h3 class="name">${product.name}</h3>
+                        <p class="price">  ${product.price} <i class="fa-solid fa-shekel-sign"></i> </p>
+                        <p class="price old-price">  ${product.old_price} <i class="fa-solid fa-shekel-sign"></i> </p>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+
+
+
+                <a href="${baseUrl}product.html?id=${product.id}" class=" btn">קנה עכשיו</a>
+`;
+                    container.appendChild(div);
+                });
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get("q");
+
+            // If there's a query, filter right away
+            if (query) {
+                searchInput.value = query; // set it in the input too
+                const filtered = data.filter(p =>
+                    p.name.toLowerCase().includes(query.toLowerCase())
+                );
+                renderProducts(filtered);
+            } else {
+                renderProducts(data); // full list
+            }
+            searchInput.addEventListener("input", () => {
+                const keyword = searchInput.value.toLowerCase();
+                const filtered = data.filter(p =>
+                    p.name.toLowerCase().includes(keyword)
+                );
+                renderProducts(filtered);
+            });
+
+        });
+
+
+
+    </script>
+    <script src="assets/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+</body>
+
+</html>

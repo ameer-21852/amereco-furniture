@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد JSON</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #f0f0f0;
+            padding: 10px;
+            white-space: pre-wrap;
+            margin-top: 10px;
+            direction: ltr;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>مولد JSON لبيانات المنتج</h2>
+
+    <label for="id">ID</label>
+    <input type="number" id="id">
+
+    <label for="name">الاسم</label>
+    <input type="text" id="name">
+
+    <label for="desc">الوصف (يدعم الأسطر الجديدة)</label>
+    <textarea id="desc" rows="20"></textarea>
+
+    <label for="old_price">السعر القديم</label>
+    <input type="text" id="old_price">
+
+    <label for="price">السعر الجديد</label>
+    <input type="text" id="price">
+
+    <label for="sizes">المقاسات  (افصلها بفاصلة ,)</label>
+    <input type="text" id="sizes">
+    <label for="images">روابط الصور (افصلها بفاصلة ,)</label>
+    <textarea id="images" rows="2"></textarea>
+
+    <button onclick="generate()">توليد JSON</button>
+    <button onclick="copyJSON()">📋 نسخ</button>
+
+    <h3>النتيجة:</h3>
+    <pre id="output">{ }</pre>
+
+    <script>
+        function generate() {
+            const id = parseInt(document.getElementById('id').value.trim());
+            const name = document.getElementById('name').value.trim().replace(/"/g, '\\"');
+            const description = document.getElementById('desc').value.trim()
+                .replace(/"/g, '\\"')
+                .replace(/\r?\n/g, ' <br>');
+            const old_price = document.getElementById('old_price').value.trim();
+            const price = document.getElementById('price').value.trim();
+            const sizes = document.getElementById('sizes').value.trim()
+                .split(',')
+                .map(size => `"${size.trim()}"`);
+
+            const images = document.getElementById('images').value.trim()
+                .split(',')
+                .map(img => `"${img.trim()}"`);
+
+            const json = `{
+    "id": ${id},
+    "name": "${name}",
+    "description": "${description}",
+    "old_price": "${old_price}",
+    "price": "${price}",
+    "sizes": [${sizes.join(", ")}],
+    "images": [${images.join(", ")}]
+}`;
+            document.getElementById('output').textContent = json;
+        }
+
+        function copyJSON() {
+            const output = document.getElementById('output').textContent;
+            navigator.clipboard.writeText(output).then(() => {
+                alert("تم نسخ JSON بنجاح ✅");
+            });
+        }
+    </script>
+</body>
+
+</html>

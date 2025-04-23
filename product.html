@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Orders</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css" />
+    <link rel="stylesheet" href="assets/animate.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+
+    <style>
+
+    </style>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+    <header class="header">
+
+        <section class="flex">
+            <a href="index.html" class="logo">רהיטים אונליין - Amereco</a>
+            <form action="index.html" method="GET">
+                <input type="text" name="q" placeholder="Search Bar" class="box222">
+
+                <button type="submit" class="btn222"><i class="fas fa-search"></i></button>
+            </form>
+
+
+        </section>
+
+    </header>
+    <a href="https://wa.me/972503581852" class="whatsapp-button" target="_blank" rel="noopener">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Contact" />
+    </a>
+
+
+
+
+    <section class="order-details wow animate__animated animate__bounceInUp">
+
+
+        <div class="box-container">
+
+
+            <div class="box">
+
+                <div class="col">
+                    <div class="swiper-container">
+                        <swiper-container id="images"
+                            style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="mySwiper"
+                            thumbs-swiper=".mySwiper2" space-between="10" navigation="false">
+
+
+                        </swiper-container>
+
+                        <swiper-container class="mySwiper2" space-between="10" slides-per-view="4" free-mode="true"
+                            watch-slides-progress="true">
+
+
+                        </swiper-container>
+                    </div>
+
+                    <h3 class="name"></h3>
+
+                    <p class="grand-total">
+                        המחיר
+                        <span class="old-price"></span>
+                        <span class="price"></span>
+
+
+                    </p>
+                    <div style="margin: 1rem 0;">
+                        <label for="quantity" style="display: block; font-size: 2rem; font-weight: bold;">כמות:</label>
+                        <div style="text-align: center;">
+                            <input type="number" id="quantity" value="1" min="1"
+                                style="padding: 0.5rem; width: 100px;  text-align: center; margin-top: 0.5rem; border: 1px solid #ccc; border-radius: .3rem;">
+                        </div>
+
+                    </div>
+
+
+                    <div style="margin: 1rem 0;">
+                        <label style="display: block;  font-size: 2rem; font-weight: bold;">רוחב:</label>
+                        <div id="size-buttons" style=" text-align: center;  margin-top: 0.5rem;"></div>
+                    </div>
+
+
+
+
+                    <button class="btn" onclick="openOrderModal()">קנה עכשיו</button>
+
+                </div>
+                <div class="col">
+                    <p class="title">פרטי מוצר</p>
+                    <p class="user"></p>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+
+            <!-- عن المتجر -->
+            <div>
+                <h3>רהיטים אונליין - Amereco</h3>
+                <p>מזנונים בהתאמה אישית – עיצוב שמותאם בדיוק לכם! המזנון הוא לב הסלון, והוא צריך להיות יפה, פונקציונלי
+                    ומותאם בדיוק לצרכים שלכם. אצלנו ברהיטים אונליין - Amereco תוכלו לבחור את החומר, הצבעים והמידות כדי
+                    ליצור מזנון שמשתלב בצורה מושלמת עם הסגנון שלכם!
+                </p>
+                <p>✅ עיצוב ייחודי בהתאמה אישית<br>✅ איכות גבוהה ללא פשרות<br>✅ פונקציונליות שמתאימה בדיוק לבית שלכם</p>
+
+            </div>
+
+            <!-- روابط سريعة -->
+            <div>
+                <h3>אתרי רשתות חברתיות</h3>
+                <ul>
+
+                    <li><a target="_blank" href="https://www.facebook.com/AmirKitchens"><i
+                                class="fab fa-facebook-f"></i> פייסבוק </a></li>
+                    <li><a target="_blank" href="https://wa.me/972503581852"><i class="fab fa-whatsapp"></i> וזה נספר
+                        </a></li>
+
+                </ul>
+            </div>
+
+            <!-- الدعم -->
+            <div>
+                <h3>קישורים</h3>
+                <ul>
+                    <li><a href="index.html">בַּיִת</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+        <p class="copyright">&copy; <span id="year"></span> כל הזכויות שמורות Amereco</p>
+    </footer>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+
+        let navbar = document.querySelector('.header .flex .navbar');
+
+        document.querySelector('#menu-btn').onclick = () => {
+            navbar.classList.toggle('active');
+        }
+
+        window.onscroll = () => {
+            navbar.classList.remove('active');
+        }
+
+        document.querySelectorAll('input[type="number"]').forEach(inputNumber => {
+            inputNumber.oninput = () => {
+                if (inputNumber.value.length > inputNumber.maxLength) inputNumber.value = inputNumber.value.slice(0, inputNumber.maxLength);
+            };
+        });
+
+    </script>
+
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const productId = parseInt(params.get("id"));
+
+        let selectedSize = ""; // ✅ متغير المقاس المختار
+        const baseUrl = "https://10youseftarek.github.io/Abu-Yosef-Masar-Code-ecommerce-frontend-with-json/";
+        // const baseUrl = "/";
+
+        fetch(baseUrl + "data.html").then(res => res.text()).then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const jsonText = doc.querySelector("#products-data").textContent;
+            const data = JSON.parse(jsonText);
+
+            const product = data.find(p => p.id === productId);
+            if (!product) return alert("المنتج غير موجود");
+
+            // Fill in the page:
+            document.querySelector(".name").textContent = product.name;
+            document.querySelector(".grand-total span.price").innerHTML = `${product.price} <i class="fa-solid fa-shekel-sign"></i>`;
+            document.querySelector(".grand-total span.old-price").innerHTML = `${product.old_price} <i class="fa-solid fa-shekel-sign"></i>`;
+            // document.querySelector(".title").textContent = "تفاصيل المنتج";
+            document.querySelector(".user").innerHTML = product.description;
+            // document.querySelectorAll(".name")[1].textContent = `Category: ${product.category}`;
+            // document.querySelectorAll(".name")[2].textContent = `Sub Category: ${product.subcategory}`;
+
+            // Generate Swiper slides
+            const mainSwiper = document.querySelector(".mySwiper");
+            const thumbSwiper = document.querySelector(".mySwiper2");
+
+            mainSwiper.innerHTML = "";
+            thumbSwiper.innerHTML = "";
+
+            product.images.forEach(img => {
+                const slide = `<swiper-slide><img src="${img}" /></swiper-slide>`;
+                mainSwiper.innerHTML += slide;
+                thumbSwiper.innerHTML += slide;
+            });
+
+            const sizeContainer = document.getElementById("size-buttons");
+            sizeContainer.innerHTML = ""; // تنظيف أولًا
+            if (Array.isArray(product.sizes) && product.sizes.length > 0) {
+                product.sizes.forEach(size => {
+                    const btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.className = "size-btn";
+
+                    btn.dataset.size = size;
+                    btn.textContent = size;
+                    if (product.sizes[0] == size) {
+                        document.querySelectorAll(".size-btn").forEach(b => b.classList.remove("selected"));
+                        btn.classList.add("selected");
+                        document.querySelectorAll(".size-btn").forEach(b => b.removeAttribute("id"));
+                        btn.id = "selected-size"
+                    }
+                    btn.addEventListener("click", function () {
+                        document.querySelectorAll(".size-btn").forEach(b => b.classList.remove("selected"));
+                        btn.classList.add("selected");
+                        document.querySelectorAll(".size-btn").forEach(b => b.removeAttribute("id"));
+                        btn.id = "selected-size";
+                        selectedSize = size;
+                    });
+
+                    sizeContainer.appendChild(btn);
+                });
+            } else {
+                // sizeContainer.innerHTML = "<p style='color: red;'>لا توجد مقاسات لهذا المنتج</p>";
+            }
+
+        });
+
+
+
+    </script>
+
+
+    <div id="order-modal"
+        style="display: none; position: fixed; inset: 0; background-color: rgba(0,0,0,0.5); z-index: 10001; justify-content: center; align-items: center;">
+        <div class="wow animate__animated animate__bounceInUp"
+            style="background: white; padding: 1rem; border-radius: 1rem; width: 100%; max-width: 400px; position: relative;">
+            <button onclick="closeOrderModal()"
+                style="position: absolute; top: 1rem; left: 1rem; background: none; border: none; font-size: 1.5rem;">×</button>
+
+            <h3 style="margin-bottom: 1rem;">רכישה משלימה</h3>
+
+            <p style="color: rgb(0, 0, 0); font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">
+                🚚 משלוחים רק בין גדרה לחדרה וגם בירושלים.
+            </p>
+            <p style="color: rgb(0, 0, 0); font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">
+                🚚 האורדר יחובר תוך חודש
+            </p>
+
+            <form id="order-form">
+                <label for="name">שם מלא</label>
+                <input type="text" id="name" placeholder="שם מלא" required>
+
+                <label for="phone">מספר טלפון</label>
+                <input type="text" id="phone" placeholder="מספר טלפון" required>
+
+                <label for="city">עִיר</label>
+                <input type="text" id="city" placeholder="עִיר" required>
+
+                <label for="region">אֵזוֹר</label>
+                <input type="text" id="region" placeholder="אֵזוֹר" required>
+
+                <label for="streat">שם רחוב</label>
+                <input type="text" id="streat" placeholder="שם רחוב" required>
+
+                <label for="building">מספר בניין</label>
+                <input type="text" id="building" placeholder="מספר בניין" required>
+
+                <label for="apartment">מספר דירה</label>
+                <input type="text" id="apartment" placeholder="מספר דירה" required>
+
+                <label for="notes">ההודעה</label>
+                <textarea type="text" id="notes"
+                    placeholder="פרטו לנו ככל האפשר, פניות כלליות מקבלות עדיפות נמוכה."></textarea>
+                <button type="submit" class="btn">לְאַשֵׁר</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function openOrderModal() {
+            document.getElementById("order-modal").style.display = "flex";
+        }
+
+        function closeOrderModal() {
+            document.getElementById("order-modal").style.display = "none";
+        }
+
+        document.getElementById("order-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            const city = document.getElementById("city").value.trim();
+            const region = document.getElementById("region").value.trim();
+            const streat = document.getElementById("streat").value.trim();
+            const building = document.getElementById("building").value.trim();
+            const apartment = document.getElementById("apartment").value.trim();
+            const notes = document.getElementById("notes").value.trim();
+            const quantity = document.getElementById("quantity").value.trim();
+            const size = document.getElementById("selected-size").dataset.size.trim();
+
+            const address = `- עִיר: ${city}\n - אֵזוֹר: ${region}\n - שם רחוב: ${streat}\n - מספר בניין: ${building}\n - מספר דירה: ${apartment}\n. `;
+
+            const productName = document.querySelector(".name").textContent;
+            const message = `שלום, אני מעוניין לרכוש את המוצר הזה ${productName}.\n - כַּמוּת: ${quantity}\n - גוֹדֶל: ${size}\n - שם: ${name}\n - טלפון: ${phone}\n - כתובת: ${address}\n - הערות במוצר: ${notes}.`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/972503581852?text=${encodedMessage}`;
+            // ✅ افتح واتساب بالرابط
+            window.open(whatsappUrl, "_blank");
+            // ✅ إغلاق المودال
+            closeOrderModal();
+        });
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const swiperEl = document.querySelector('.mySwiper');
+
+            swiperEl.addEventListener('click', (e) => {
+                const viewer = new Viewer(document.getElementById('images'), {
+                    title: 0,
+                    hidden() {
+                        viewer.destroy();
+                    }
+                });
+
+                viewer.show();
+            });
+        });
+    </script>
+    </script>
+    <script src="assets/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>
