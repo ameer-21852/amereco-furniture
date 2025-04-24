@@ -210,6 +210,7 @@
 
             // Fill in the page:
             document.querySelector(".name").textContent = product.name;
+            document.title = `Amereco Furniture | ${product.name}`;
             document.querySelector(".grand-total span.price").innerHTML = `${product.price} <i class="fa-solid fa-shekel-sign"></i>`;
             document.querySelector(".grand-total span.old-price").innerHTML = `${product.old_price} <i class="fa-solid fa-shekel-sign"></i>`;
             // document.querySelector(".title").textContent = "تفاصيل المنتج";
