@@ -220,7 +220,7 @@
             // document.querySelectorAll(".name")[1].textContent = `Category: ${product.category}`;
             // document.querySelectorAll(".name")[2].textContent = `Sub Category: ${product.subcategory}`;
             document.title = `Amereco Furniture | ${product.name}`;
-            document.querySelector('#meta-desc').setAttribute("content", product.description.slice(0, 150));
+            document.querySelector('#meta-desc').setAttribute("content", product.description);
             var keywords = `${product.name},Amereco,Amereco Furniture,רהיטים אונליין - Amereco,רהיטים אונליין,20 שנה בתחם,תכנון ביצוע כל סוגי הרהיטים,מזנונים,שולחנות,מטבחים,חדרי,אמבטיה,חדרי שינה,חדרי ילדים,הוא עוד,`;
             
             document.querySelector('#meta-keywords').setAttribute("content", keywords);
