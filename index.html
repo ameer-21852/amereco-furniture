@@ -8,7 +8,7 @@
     <title>Amereco Furniture | מכירת רהיטים</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="assets/animate.min.css">
+<!--     <link rel="stylesheet" href="assets/animate.min.css"> -->
     <link rel="stylesheet" href="assets/style.css">
 
 </head>
@@ -134,7 +134,8 @@
                 }
                 products.forEach(product => {
                     const div = document.createElement("div");
-                    div.className = "box wow animate__animated animate__bounceInUp";
+                    // div.className = "box wow animate__animated animate__bounceInUp";
+                    div.className = "box";
                     div.innerHTML = `
                 <a href="${baseUrl}product.html?id=${product.id}">
                     <img src="${product.images[0]}" class="image" alt="${product.name}">
@@ -180,10 +181,10 @@
 
 
     </script>
-    <script src="assets/wow.min.js"></script>
+<!--     <script src="assets/wow.min.js"></script>
     <script>
         new WOW().init();
-    </script>
+    </script> -->
 
 </body>
 
