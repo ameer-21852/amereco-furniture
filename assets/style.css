@@ -255,7 +255,6 @@ button.btn:hover,
     padding: 2rem;
     border-radius: .5rem;
     height: auto;
-    max-height: 340px;
 }
 
 .products .box-container .box .image {
@@ -263,7 +262,6 @@ button.btn:hover,
     width: 100%;
     object-fit: contain;
     margin-bottom: 2rem;
-    max-height: 340px;
 }
 
 @media (min-width:992px) {
