@@ -115,26 +115,51 @@
     </script>
 
     <script>
-
+        // TODO::here
+        // const baseUrl = "http://0.0.0.0:8000/";
         const baseUrl = "https://amereco-furniture.com/";
+
         // const baseUrl = "/";
         fetch(baseUrl + "data.html").then(res => res.text()).then(html => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, "text/html");
             const jsonText = doc.querySelector("#products-data").textContent;
+            const infoJson = doc.querySelector("#info-data").textContent;
             if (!jsonText) {
                 console.error("נתונים אינם קיימים");
                 return;
             }
             const data = JSON.parse(jsonText);
+            const info = JSON.parse(infoJson);
             const container = document.getElementById("product-list");
             const searchInput = document.getElementById("searchInput");
-            function renderProducts(products) {
+            
+
+            function renderProducts(products, info) {
                 container.innerHTML = "";
                 if (products.length === 0) {
                     container.innerHTML = `<p style="font-size: 1.6rem; color: black;">אין תוצאות תואמות</p>`;
                     return;
                 }
+                // info
+                const divinfo = document.createElement("div");
+                    // div.className = "box wow animate__animated animate__bounceInUp";
+                    divinfo.className = "box";
+                    divinfo.innerHTML = `
+                <a href="${baseUrl}info.html">
+                    <img src="${info.images[0]}" class="image" alt="${info.name}">
+                    <div class="name-sec">
+                        <h3 class="name">${info.name}</h3>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+
+
+
+                <a href="${baseUrl}info.html" class=" btn">יוֹתֵר</a>
+`;
+                    container.appendChild(divinfo);
+                // end info
                 products.forEach(product => {
                     const div = document.createElement("div");
                     // div.className = "box wow animate__animated animate__bounceInUp";
@@ -146,6 +171,7 @@
                         <h3 class="name">${product.name}</h3>
                         <p class="price">  ${product.price} <i class="fa-solid fa-shekel-sign"></i> </p>
                         <p class="price old-price">  ${product.old_price} <i class="fa-solid fa-shekel-sign"></i> </p>
+                        <p class="price old-price" style="text-decoration:none; margin-right: 1rem; margin-left: 1rem;">תשלום למוביל בעת המסירה, בהתאם להזמנה.</p>
                         <div class="clearfix"></div>
                     </div>
                 </a>
@@ -169,7 +195,7 @@
                 );
                 renderProducts(filtered);
             } else {
-                renderProducts(data); // full list
+                renderProducts(data, info); // full list
             }
             searchInput.addEventListener("input", () => {
                 const keyword = searchInput.value.toLowerCase();

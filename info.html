@@ -73,7 +73,7 @@
 
                     <h3 class="name"></h3>
 
-                    <p class="grand-total">
+                    <!-- <p class="grand-total">
                         המחיר
                         <span class="old-price"></span>
                         <span class="price"></span>
@@ -98,14 +98,14 @@
 
 
 
-                    <button class="btn" onclick="openOrderModal()">קנה עכשיו</button>
+                    <button class="btn" onclick="openOrderModal()">קנה עכשיו</button> -->
 
                 </div>
-                <div class="col">
+                <!-- <div class="col">
                     <p class="title">פרטי מוצר</p>
                     <p class="user"></p>
 
-                </div>
+                </div> -->
             </div>
 
 
@@ -207,19 +207,19 @@
         fetch(baseUrl + "data.html").then(res => res.text()).then(html => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, "text/html");
-            const jsonText = doc.querySelector("#products-data").textContent;
+            const jsonText = doc.querySelector("#info-data").textContent;
             const data = JSON.parse(jsonText);
 
-            const product = data.find(p => p.id === productId);
+            const product = data;
             if (!product) return alert("המוצר אינו קיים");
 
             // Fill in the page:
             document.querySelector(".name").textContent = product.name;
             document.title = `Amereco Furniture | ${product.name}`;
-            document.querySelector(".grand-total span.price").innerHTML = `${product.price} <i class="fa-solid fa-shekel-sign"></i>`;
-            document.querySelector(".grand-total span.old-price").innerHTML = `${product.old_price} <i class="fa-solid fa-shekel-sign"></i>`;
+            // document.querySelector(".grand-total span.price").innerHTML = `${product.price} <i class="fa-solid fa-shekel-sign"></i>`;
+            // document.querySelector(".grand-total span.old-price").innerHTML = `${product.old_price} <i class="fa-solid fa-shekel-sign"></i>`;
             // document.querySelector(".title").textContent = "تفاصيل المنتج";
-            document.querySelector(".user").innerHTML = product.description;
+            // document.querySelector(".user").innerHTML = product.description;
             // document.querySelectorAll(".name")[1].textContent = `Category: ${product.category}`;
             // document.querySelectorAll(".name")[2].textContent = `Sub Category: ${product.subcategory}`;
             document.title = `Amereco Furniture | ${product.name}`;
