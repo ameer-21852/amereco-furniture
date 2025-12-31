@@ -335,7 +335,8 @@
                 <label for="notes">ההודעה</label>
                 <textarea type="text" id="notes"
                     placeholder="פרטו לנו ככל האפשר, פניות כלליות מקבלות עדיפות נמוכה."></textarea>
-                <button type="submit" class="btn">לְאַשֵׁר</button>
+                <button type="submit" class="btn" id="submit-btn" disabled
+                    style="opacity: 0.5; cursor: not-allowed;">לְאַשֵׁר</button>
             </form>
         </div>
     </div>
@@ -395,6 +396,39 @@
     <script>
         new WOW().init();
     </script> -->
+    <script>
+        // for disable buy button
+        const orderForm = document.getElementById('order-form');
+        const submitBtn = document.getElementById('submit-btn');
+
+        // جلب جميع الحقول المطلوبة داخل النموذج
+        const requiredInputs = orderForm.querySelectorAll('input[required]');
+
+        function checkFormValidity() {
+            let allFilled = true;
+
+            requiredInputs.forEach(input => {
+                if (input.value.trim() === "") {
+                    allFilled = false;
+                }
+            });
+
+            if (allFilled) {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = "1";
+                submitBtn.style.cursor = "pointer";
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = "0.5";
+                submitBtn.style.cursor = "not-allowed";
+            }
+        }
+
+        // إضافة مستمع للأحداث لكل حقل إدخال
+        requiredInputs.forEach(input => {
+            input.addEventListener('input', checkFormValidity);
+        });
+    </script>
 </body>
 
 </html>
