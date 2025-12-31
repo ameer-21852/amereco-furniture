@@ -6,17 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>רהיטים אונליין - Amereco</title>
-    <meta name="description" content="רהיטים אונליין - Amereco | מגוון עצום של ריהוט לבית במחירים משתלמים במיוחד! קנו עכיו - 🚛 משלוחים מהירים ובחינם עד הבית! - 🏷 ישירות מהמפעל לצרכן – מחירים ללא תחרות! - כנסו עכשיו והתחדשו בריהוט מושלם">
-    <meta name="keywords" content="Amereco,Amereco Furniture,רהיטים אונליין - Amereco,רהיטים אונליין,20 שנה בתחם,תכנון ביצוע כל סוגי הרהיטים,מזנונים,שולחנות,מטבחים,חדרי,אמבטיה,חדרי שינה,חדרי ילדים,הוא עוד,">
+    <meta name="description"
+        content="רהיטים אונליין - Amereco | מגוון עצום של ריהוט לבית במחירים משתלמים במיוחד! קנו עכיו - 🚛 משלוחים מהירים ובחינם עד הבית! - 🏷 ישירות מהמפעל לצרכן – מחירים ללא תחרות! - כנסו עכשיו והתחדשו בריהוט מושלם">
+    <meta name="keywords"
+        content="Amereco,Amereco Furniture,רהיטים אונליין - Amereco,רהיטים אונליין,20 שנה בתחם,תכנון ביצוע כל סוגי הרהיטים,מזנונים,שולחנות,מטבחים,חדרי,אמבטיה,חדרי שינה,חדרי ילדים,הוא עוד,">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-<!--     <link rel="stylesheet" href="assets/animate.min.css"> -->
+    <!--     <link rel="stylesheet" href="assets/animate.min.css"> -->
     <link rel="stylesheet" href="assets/style.css">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NXN99WXP');</script>
+    <!-- End Google Tag Manager -->
 
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXN99WXP" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <header class="header">
 
@@ -133,7 +149,7 @@
             const info = JSON.parse(infoJson);
             const container = document.getElementById("product-list");
             const searchInput = document.getElementById("searchInput");
-            
+
 
             function renderProducts(products, info) {
                 container.innerHTML = "";
@@ -143,9 +159,9 @@
                 }
                 // info
                 const divinfo = document.createElement("div");
-                    // div.className = "box wow animate__animated animate__bounceInUp";
-                    divinfo.className = "box";
-                    divinfo.innerHTML = `
+                // div.className = "box wow animate__animated animate__bounceInUp";
+                divinfo.className = "box";
+                divinfo.innerHTML = `
                 <a href="${baseUrl}info.html">
                     <img src="${info.images[0]}" class="image" alt="${info.name}">
                     <div class="name-sec">
@@ -158,7 +174,7 @@
 
                 <a href="${baseUrl}info.html" class=" btn">יוֹתֵר</a>
 `;
-                    container.appendChild(divinfo);
+                container.appendChild(divinfo);
                 // end info
                 products.forEach(product => {
                     const div = document.createElement("div");
@@ -210,7 +226,7 @@
 
 
     </script>
-<!--     <script src="assets/wow.min.js"></script>
+    <!--     <script src="assets/wow.min.js"></script>
     <script>
         new WOW().init();
     </script> -->

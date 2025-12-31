@@ -6,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>רהיטים אונליין - Amereco</title>
-    <meta name="description" content="רהיטים אונליין - Amereco | מגוון עצום של ריהוט לבית במחירים משתלמים במיוחד! קנו עכיו - 🚛 משלוחים מהירים ובחינם עד הבית! - 🏷 ישירות מהמפעל לצרכן – מחירים ללא תחרות! - כנסו עכשיו והתחדשו בריהוט מושלם" id="meta-desc">
-    <meta name="keywords" content="Amereco,Amereco Furniture,רהיטים אונליין - Amereco,רהיטים אונליין,20 שנה בתחם,תכנון ביצוע כל סוגי הרהיטים,מזנונים,שולחנות,מטבחים,חדרי,אמבטיה,חדרי שינה,חדרי ילדים,הוא עוד," id="meta-keywords">
+    <meta name="description"
+        content="רהיטים אונליין - Amereco | מגוון עצום של ריהוט לבית במחירים משתלמים במיוחד! קנו עכיו - 🚛 משלוחים מהירים ובחינם עד הבית! - 🏷 ישירות מהמפעל לצרכן – מחירים ללא תחרות! - כנסו עכשיו והתחדשו בריהוט מושלם"
+        id="meta-desc">
+    <meta name="keywords"
+        content="Amereco,Amereco Furniture,רהיטים אונליין - Amereco,רהיטים אונליין,20 שנה בתחם,תכנון ביצוע כל סוגי הרהיטים,מזנונים,שולחנות,מטבחים,חדרי,אמבטיה,חדרי שינה,חדרי ילדים,הוא עוד,"
+        id="meta-keywords">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css" />
-<!--     <link rel="stylesheet" href="assets/animate.min.css"> -->
+    <!--     <link rel="stylesheet" href="assets/animate.min.css"> -->
     <link rel="stylesheet" href="assets/style.css">
 
     <style>
@@ -22,10 +26,23 @@
 
     </style>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NXN99WXP');</script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXN99WXP" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header class="header">
 
         <section class="flex">
@@ -225,7 +242,7 @@
             document.title = `Amereco Furniture | ${product.name}`;
             document.querySelector('#meta-desc').setAttribute("content", product.description);
             var keywords = `${product.name},Amereco,Amereco Furniture,רהיטים אונליין - Amereco,רהיטים אונליין,20 שנה בתחם,תכנון ביצוע כל סוגי הרהיטים,מזנונים,שולחנות,מטבחים,חדרי,אמבטיה,חדרי שינה,חדרי ילדים,הוא עוד,`;
-            
+
             document.querySelector('#meta-keywords').setAttribute("content", keywords);
             // Generate Swiper slides
             const mainSwiper = document.querySelector(".mySwiper");
@@ -279,7 +296,7 @@
 
     <div id="order-modal"
         style="display: none; position: fixed; inset: 0; background-color: rgba(0,0,0,0.5); z-index: 10001; justify-content: center; align-items: center;">
-        <div 
+        <div
             style="background: white; padding: 1rem; border-radius: 1rem; width: 100%; max-width: 400px; position: relative;">
             <button onclick="closeOrderModal()"
                 style="position: absolute; top: 1rem; left: 1rem; background: none; border: none; font-size: 1.5rem;">×</button>
@@ -374,7 +391,7 @@
         });
     </script>
     </script>
-<!--     <script src="assets/wow.min.js"></script>
+    <!--     <script src="assets/wow.min.js"></script>
     <script>
         new WOW().init();
     </script> -->
